@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('departments', function (Blueprint $table) {
             $table->id();
             $table->string('department_name')->nullable();
-            $table->unsignedBigInteger('added_by')->nullable();
+            $table->unsignedBigInteger('hospital_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

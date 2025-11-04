@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('working_hours_From')->nullable();
             $table->string('working_hours_to')->nullable();
             $table->unsignedBigInteger('qualification_id')->nullable();
-            $table->unsignedBigInteger('added_by')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

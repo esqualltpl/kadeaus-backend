@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('last_name')->nullable();
             $table->string('relation')->nullable();
             $table->integer('contact_number')->nullable();
-            $table->unsignedBigInteger('added_by');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
             $table->softDeletes();
         });

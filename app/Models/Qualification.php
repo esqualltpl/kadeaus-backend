@@ -11,7 +11,7 @@ class Qualification extends Model
 {
     use SoftDeletes, HasFactory, Notifiable;
 
-    protected $fillable = ['degree', 'institute', 'start_date', 'end_date', 'total_marks_CGPA', 'achieved_marks_CGPA', 'attachment', 'nurse_id', 'hospital_id', 'doctor_id', 'added_by'];
+    protected $fillable = ['degree', 'institute', 'start_date', 'end_date', 'total_marks_CGPA', 'achieved_marks_CGPA', 'attachment', 'nurse_id', 'hospital_id', 'doctor_id', 'user_id'];
 
     public function users()
     {

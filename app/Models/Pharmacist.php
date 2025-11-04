@@ -11,7 +11,7 @@ class Pharmacist extends Model
 {
     use SoftDeletes, HasFactory, Notifiable;
 
-    protected $fillable = ['hospital_id', 'working_hours', 'qualification_id', 'added_by'];
+    protected $fillable = ['hospital_id', 'working_hours', 'qualification_id', 'user_id'];
 
     public function users()
     {

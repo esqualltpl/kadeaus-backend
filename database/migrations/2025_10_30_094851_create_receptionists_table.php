@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('receptionists', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('hospital_id')->nullable();
-            $table->unsignedBigInteger('added_by')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

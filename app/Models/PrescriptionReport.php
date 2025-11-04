@@ -12,7 +12,7 @@ class PrescriptionReport extends Model
 {
     use SoftDeletes, HasFactory, Notifiable;
 
-    protected $fillable = ['patient_id', 'appointment_id', 'attachment', 'pharmacist_id', 'hospital_id', 'added_by'];
+    protected $fillable = ['patient_id', 'appointment_id', 'attachment', 'pharmacist_id', 'hospital_id', 'user_id'];
 
     public function users()
     {

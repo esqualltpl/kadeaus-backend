@@ -11,7 +11,7 @@ class Receptionist extends Model
 {
     use SoftDeletes, HasFactory, Notifiable;
 
-    protected $fillable = ['role_id', 'hospital_id', 'added_by'];
+    protected $fillable = ['role_id', 'hospital_id', 'user_id'];
 
     public function users()
     {

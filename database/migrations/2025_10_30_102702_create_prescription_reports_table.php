@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('attachment')->nullable();
             $table->unsignedBigInteger('pharmacist_id')->nullable();
             $table->unsignedBigInteger('hospital_id')->nullable();
-            $table->unsignedBigInteger('added_by')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

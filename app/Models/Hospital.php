@@ -11,7 +11,7 @@ class Hospital extends Model
 {
     use SoftDeletes, Notifiable, HasFactory;
 
-    protected $fillable = ['specialities','address','department_id' ,'added_by'];
+    protected $fillable = ['specialities','address','user_id'];
 
     public function users()
     {

@@ -18,7 +18,7 @@ class Doctor extends Model
         'working_hours_From',
         'working_hours_to',
         'qualification_id',
-        'added_by',
+        'user_id',
     ];
 
     public function users()

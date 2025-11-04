@@ -11,7 +11,7 @@ class Department extends Model
 {
     use SoftDeletes, HasFactory,Notifiable;
 
-    protected $fillable = ['department_name', 'added_by'];
+    protected $fillable = ['department_name', 'user_id', 'hospital_id'];
 
     public function user()
     {
