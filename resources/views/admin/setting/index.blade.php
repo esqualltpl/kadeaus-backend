@@ -536,7 +536,7 @@
         });
     </script>
     <script>
-        document.getElementById("billingLink").addEventListener("click", function(e) {
+        document.getElementById("billingLink").addEventListener("click", function (e) {
             e.preventDefault(); // Prevent default anchor behavior
 
             const target = document.getElementById("dashboardsExamples");
@@ -558,6 +558,7 @@
         });
     </script>
     <script>
+
         const sidebar = document.getElementById('sidenav-main');
         const toggleButton = document.getElementById('sidebarToggle');
         const expandedLogo = document.querySelector('.expanded-logo');
@@ -578,6 +579,8 @@
                 collapsedLogo.style.display = 'none';
             }
         });
+
+
     </script>
     <script>
         function togglePassword(inputId, iconElement) {
@@ -594,6 +597,60 @@
                 icon.classList.add("fa-eye");
             }
         }
+        if (document.getElementById('products-list')) {
+            const dataTableSearch = new simpleDatatables.DataTable("#products-list", {
+                searchable: true,
+                fixedHeight: false,
+                perPage: 7
+            });
+        }
+        if (document.getElementById('Vaccines-list')) {
+            const dataTableSearch = new simpleDatatables.DataTable("#Vaccines-list", {
+                searchable: true,
+                fixedHeight: false,
+                perPage: 7
+            });
+        }
+        if (document.getElementById('permission-list')) {
+            const dataTableSearch = new simpleDatatables.DataTable("#permission-list", {
+                searchable: true,
+                fixedHeight: false,
+                perPage: 7
+            });
+        }
+    </script>
+    <script>
+        document.getElementById("imageUpload").addEventListener("change", function (event) {
+            const file = event.target.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById("avatarImage").src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        function switchDocument() {
+            if (document.getElementById('Divone')) {
+
+                if (document.getElementById('Divone').style.display == 'none') {
+                    document.getElementById('Divone').style.display = 'block';
+                    document.getElementById('Divtwo').style.display = 'none';
+                }
+                else {
+                    document.getElementById('Divone').style.display = 'none';
+                    document.getElementById('Divtwo').style.display = 'block';
+                }
+            }
+        }
+
+        const dataTableSearch = new simpleDatatables.DataTable("#datatable-search", {
+            searchable: false,
+            fixedHeight: false,
+            perPageSelect: false
+        });
+
     </script>
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
