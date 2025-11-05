@@ -11,15 +11,20 @@ class Hospital extends Model
 {
     use SoftDeletes, Notifiable, HasFactory;
 
-    protected $fillable = ['specialities','address','user_id'];
+    protected $fillable = ['specialities','address','user_id', 'hospital_id'];
 
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
     public function departments()
     {
-        return $this->belongsTo(Department::class);
+        return $this->hasMany(Department::class);
+    }
+
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
     }
 
     public function nurses()
@@ -55,5 +60,9 @@ class Hospital extends Model
     public function doctor()
     {
         return $this->hasMany(Doctor::class);
+    }
+    public function getPidAttribute(): string
+    {
+        return $this->hospital_id;
     }
 }

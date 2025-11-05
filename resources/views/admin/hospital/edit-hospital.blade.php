@@ -54,27 +54,32 @@
                     <h4 class="fw-bold mb-0">Add Hospital</h4>
                 </div>
                 <h6 class="section-title">Basic Details </h6>
-                <form action="{{ route('admin.hospitals.store') }}" method="POST">
+                <form action="{{ route('admin.hospital.hospitalUpdate', $hospital->id) }}" method="POST"> 
                     @csrf
+
                     <div class="row g-3 mb-3">
                         <div class="col-md-6">
                             <label class="form-label">Name</label>
-                            <input name="name" type="text" class="form-control" placeholder="Enter Name" value="{{ old('name') }}">
+                            <input name="name" type="text" class="form-control" placeholder="Enter Name" 
+                                value="{{ old('name', $hospital->user->name ?? '') }}">
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label">Email</label>
-                            <input name="email" type="email" class="form-control" placeholder="Enter Email" value="{{ old('email') }}">
+                            <input name="email" type="email" class="form-control" placeholder="Enter Email"
+                                value="{{ old('email', $hospital->user->email ?? '') }}">
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label">Phone Number</label>
-                            <input name="phone" type="text" class="form-control" placeholder="Enter Phone Number" value="{{ old('phone') }}">
+                            <input name="phone" type="text" class="form-control" placeholder="Enter Phone Number"
+                                value="{{ old('phone', $hospital->user->phone ?? '') }}">
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label">Specialities</label>
-                            <input name="specialities" type="text" class="form-control" placeholder="Enter Specialities" value="{{ old('specialities') }}">
+                            <input name="specialities" type="text" class="form-control" placeholder="Enter Specialities"
+                                value="{{ old('specialities', $hospital->specialities ?? '') }}">
                         </div>
 
                         <div class="col-md-12 mb-3">
@@ -96,27 +101,31 @@
                     <div class="row g-3">
                         <div class="col-12">
                             <label class="form-label">Address 1</label>
-                            <input name="address" type="text" class="form-control" placeholder="Enter Address" value="{{ old('address') }}">
+                            <input name="address" type="text" class="form-control" placeholder="Enter Address"
+                                value="{{ old('address', $hospital->user->address ?? '') }}">
                         </div>
 
                         <div class="col-md-4">
                             <label class="form-label">City</label>
-                            <input name="city" type="text" class="form-control" placeholder="Enter City" value="{{ old('city') }}">
+                            <input name="city" type="text" class="form-control" placeholder="Enter City"
+                                value="{{ old('city', $hospital->user->city ?? '') }}">
                         </div>
 
                         <div class="col-md-4">
                             <label class="form-label">State</label>
-                            <input name="state" type="text" class="form-control" placeholder="Enter State" value="{{ old('state') }}">
+                            <input name="state" type="text" class="form-control" placeholder="Enter State"
+                                value="{{ old('state', $hospital->user->state ?? '') }}">
                         </div>
 
                         <div class="col-md-4">
                             <label class="form-label">Zipcode</label>
-                            <input name="zipcode" type="text" class="form-control" placeholder="Enter Zipcode" value="{{ old('zipcode') }}">
+                            <input name="zipcode" type="text" class="form-control" placeholder="Enter Zipcode"
+                                value="{{ old('zipcode', $hospital->user->zipcode ?? '') }}">
                         </div>
                     </div>
 
                     <div class="mt-4 text-end">
-                        <button type="submit" class="btn btn-danger px-4 py-2">Add</button>
+                        <button type="submit" class="btn btn-primary px-4 py-2">Update</button>
                     </div>
                 </form>
             </div>

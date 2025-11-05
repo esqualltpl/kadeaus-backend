@@ -58,177 +58,140 @@
 
                 <!-- Basic Details -->
                 <h6 class="section-title">Basic Details</h6>
-                <form>
-                    <div class="row g-3">
-                        <!-- Patient Name -->
-                        <div class="col-md-6">
-                            <label class="form-label"> Name</label>
-                            <input type="text" class="form-control" placeholder="Enter Patient Name">
-                        </div>
-
-                        <!-- Email -->
-                        <div class="col-md-6">
-                            <label class="form-label">Email</label>
-                            <input type="email" class="form-control" placeholder="Enter Email">
-                        </div>
-
-                        <!-- Phone -->
-                        <div class="col-md-6">
-                            <label class="form-label">Phone Number</label>
-                            <input type="text" class="form-control" placeholder="Enter Phone Number">
-                        </div>
-
-                        <!-- DOB -->
-                        <div class="col-md-6">
-                            <label class="form-label">Date Of Birth</label>
-                            <input type="date" class="form-control">
-                        </div>
-
-                        <!-- Gender -->
-                        <div class="col-md-6">
-                            <label class="form-label">Gender</label>
-                            <select class="form-control" name="choices-gender" id="choices-gender-edit">
-                                <option value="">Select Gender</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-
-                        <div class="col-md-6">
-                            <label class="form-label">Hospital</label>
-                            <select class="form-control" name="choices-hospital" id="choices-hospital-edit">
-                                <option value="">Select Hospital</option>
-                                <option value="Northbridge Medical Center">Northbridge Medical Center</option>
-                                <option value="Starlight Health Hospital">Starlight Health Hospital</option>
-                                <option value="Riverview General Hospital">Riverview General Hospital</option>
-                                <option value="Evergreen Medical Institute">Evergreen Medical Institute</option>
-                                <option value="Lakeside Community Hospital">Lakeside Community Hospital</option>
-                                <option value="UnityCare Health">UnityCare Health</option>
-                                <option value="SummitView Hospital">SummitView Hospital</option>
-
-                            </select>
-                        </div>
-
-                        <!-- City -->
-                        <div class="col-md-6">
-                            <label class="form-label">Department</label>
-                            <select class="form-control" name="choices-department" id="choices-department-edit">
-                                <option value="">Select Department</option>
-                                <option value="Cardiology">Cardiology</option>
-                                <option value="Neurology">Neurology</option>
-                                <option value="Oncology">Oncology</option>
-                                <option value="Orthopedics">Orthopedics</option>
-                                <option value="Gastroenterology">Gastroenterology</option>
-                                <option value="Pulmonology">Pulmonology</option>
-                                <option value="Urology">Urology</option>
-                                <option value="Endocrinology">Endocrinology</option>
-                            </select>
-                        </div>
-
-                        <div class="col-md-6">
-                            <label class="form-label">Speciality Hours</label>
-                            <input type="text" class="form-control" placeholder="Enter speciality ">
-                        </div>
-                        <!-- Appointment Date -->
-                        <div class="col-md-6">
-                            <label class="form-label">Working Hours (From)</label>
-                            <input type="text" class="form-control" placeholder="Enter working hours">
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label">Working Hours (To)</label>
-                            <input type="text" class="form-control" placeholder="Enter working hours">
-                        </div>
-
+                <form action="{{ route('admin.doctors.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Name</label>
+                        <input name="name" type="text" class="form-control" placeholder="Enter Name">
                     </div>
 
-                    <!-- Divider -->
-                    <div class="divider"></div>
-
-                    <!-- Address Details -->
-                    <h6 class="section-title text-dark">Address Details</h6>
-                    <div class="row g-3">
-                        <!-- Address -->
-                        <div class="col-12">
-                            <label class="form-label">Address 1</label>
-                            <input type="text" class="form-control" placeholder="Enter Address">
-                        </div>
-
-                        <!-- City -->
-                        <div class="col-md-4">
-                            <label class="form-label">City</label>
-                            <input type="text" class="form-control" placeholder="Enter City">
-                        </div>
-
-                        <!-- State -->
-                        <div class="col-md-4">
-                            <label class="form-label">State</label>
-                            <input type="text" class="form-control" placeholder="Enter State">
-                        </div>
-
-                        <!-- Zipcode -->
-                        <div class="col-md-4">
-                            <label class="form-label">Zipcode</label>
-                            <input type="text" class="form-control" placeholder="Enter Zipcode">
-                        </div>
-                    </div>
-                    <div>
-
-                        <!-- Qualification Section -->
-                        <div class="divider"></div>
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h5 class="fw-semibold">Qualification</h5>
-                            <span class="add-btn"><i class="fa-solid fa-plus"></i> Add</span>
-                        </div>
-
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label class="form-label">Degree</label>
-                                <input type="text" class="form-control" placeholder="Enter Degree Name">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Institute</label>
-                                <input type="text" class="form-control" placeholder="Enter Institute">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Start Date</label>
-                                <input type="date" class="form-control">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">End Date</label>
-                                <input type="date" class="form-control">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Total Marks / CGPA</label>
-                                <input type="text" class="form-control" placeholder="04/01/2014">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Achieved Marks / CGPA</label>
-                                <input type="text" class="form-control" placeholder="04/01/2014">
-                            </div>
-                            <div class="col-12">
-                                <label class="form-label">Attachment</label>
-                                <div class="file-upload">
-                                    <label class="choose-file-btn">
-                                        <i class="fa-solid fa-cloud-arrow-up"></i> Choose File
-                                        <input type="file" hidden>
-                                    </label>
-                                    <div class="file-preview">
-                                        <i class="fa-solid fa-file-pdf"></i> Attachment.pdf
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Role & Permissions -->
-
-
+                    <div class="col-md-6">
+                        <label class="form-label">Email</label>
+                        <input name="email" type="email" class="form-control" placeholder="Enter Email">
                     </div>
 
-                    <!-- Submit -->
-                    <div class="mt-4 text-end">
-                        <button type="submit" class="btn btn-danger px-4 py-2">Add</button>
+                    <div class="col-md-6">
+                        <label class="form-label">Phone</label>
+                        <input name="phone" type="text" class="form-control" placeholder="Enter Phone">
                     </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Date of Birth</label>
+                        <input name="dob" type="date" class="form-control">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Gender</label>
+                        <select name="gender" class="form-control">
+                            <option value="">Select Gender</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Hospital</label>
+                        <select name="hospital_id" class="form-control">
+                            <option value="">Select Hospital</option>
+                            @foreach($hospitals as $hospital)
+                                <option value="{{ $hospital->id }}">{{ $hospital->user?->name ?? 'N/A' }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Department</label>
+                        <select name="department_id" class="form-control">
+                            <option value="">Select Department</option>
+                            @foreach($departments as $dept)
+                                <option value="{{ $dept->id }}">{{ $dept->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Speciality Hours</label>
+                        <input name="speciality_hours" type="text" class="form-control">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Working Hours (From)</label>
+                        <input name="working_hours_from" type="time" class="form-control">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Working Hours (To)</label>
+                        <input name="working_hours_to" type="time" class="form-control">
+                    </div>
+                </div>
+
+                {{-- Address section --}}
+                <h6 class="section-title text-dark">Address Details</h6>
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label class="form-label">Address</label>
+                        <input name="address" type="text" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">City</label>
+                        <input name="city" type="text" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">State</label>
+                        <input name="state" type="text" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Zipcode</label>
+                        <input name="zipcode" type="text" class="form-control">
+                    </div>
+                </div>
+
+                {{-- Qualification --}}
+                <h5 class="fw-semibold mt-4">Qualification</h5>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Degree</label>
+                        <input name="degree" type="text" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Institute</label>
+                        <input name="institute" type="text" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Start Date</label>
+                        <input name="start_date" type="date" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">End Date</label>
+                        <input name="end_date" type="date" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Total Marks / CGPA</label>
+                        <input name="total_marks_CGPA" type="text" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Achieved Marks / CGPA</label>
+                        <input name="achieved_marks_CGPA" type="text" class="form-control">
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Attachment</label>
+                        <div class="file-upload">
+                            <label class="choose-file-btn">
+                                <i class="fa-solid fa-cloud-arrow-up"></i> Choose File
+                                <input name="attachment" type="file" hidden>
+                            </label>
+                            <div class="file-preview">
+                                <i class="fa-solid fa-file-pdf"></i> Attachment.pdf
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 text-end">
+                    <button type="submit" class="btn btn-danger px-4 py-2">Add</button>
+                </div>
                 </form>
             </div>
 

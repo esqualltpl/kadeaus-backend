@@ -15,13 +15,13 @@ class Doctor extends Model
         'hospital_id',
         'department_id',
         'speciality_hours',
-        'working_hours_From',
+        'working_hours_from',
         'working_hours_to',
         'qualification_id',
         'user_id',
     ];
 
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

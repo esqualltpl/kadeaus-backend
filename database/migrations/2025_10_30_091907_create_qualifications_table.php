@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('end_date')->nullable();
             $table->string('total_marks_CGPA')->nullable();
             $table->string('achieved_marks_CGPA')->nullable();
-            $table->text('attachment')->nullable();
+            $table->longText('attachment')->nullable();
             $table->unsignedBigInteger('nurse_id')->nullable();
             $table->unsignedBigInteger('hospital_id')->nullable();
             $table->unsignedBigInteger('doctor_id')->nullable();

@@ -11,6 +11,8 @@ use App\Http\Controllers\Admin\Setting\SettingController;
 use App\Http\Controllers\Admin\Hospital\HospitalController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Admin\Appointment\AppointmentController;
+use App\Http\Controllers\Admin\Department\DepartmentController;
+use App\Models\Department;
 
 Route::get('/', function () {
     return redirect(route('login'));
@@ -34,13 +36,22 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin','as' => 'admin.'], f
 
     //Hospital Routes
     Route::get('/hospital', [HospitalController::class, 'index'])->name('hospital');
-    Route::get('/hospital/add-hospital', [HospitalController::class, 'addHospital'])->name('hospital.addHospital');
-    Route::get('/hospital/hospital/detail', [HospitalController::class, 'hospitalDetail'])->name('hospital.hospitalDetail');
+    Route::get('/hospital/add-hospital', [HospitalController::class, 'create'])->name('hospital.addHospital');
+    Route::post('/hospitals', [HospitalController::class, 'store'])->name('hospitals.store');
+    Route::get('/hospital/edit/{id}', [HospitalController::class, 'edit'])->name('hospital.hospitalEdit');
+    Route::post('/hospital/update/{id}', [HospitalController::class, 'update'])->name('hospital.hospitalUpdate');
+    Route::get('/hospital/detail', [HospitalController::class, 'view'])->name('hospital.hospitalDetail');
+    Route::delete('/hospital/delete/{id}', [HospitalController::class, 'destroy'])->name('hospital.destroy');
     Route::get('/hospital/invoice/billing/detail', [HospitalController::class, 'invoiceDetail'])->name('hospital.invoiceDetail');
+
+    // Department Routes
+    Route::post('department/create', [DepartmentController::class, 'create'])->name('department.create');
+    Route::post('department/store', [DepartmentController::class, 'store'])->name('department.store');
 
     // Doctor Routes
     Route::get('/doctor', [DoctorController::class, 'index'])->name('doctor');
-    Route::get('/doctor/add-doctor', [DoctorController::class, 'addDoctor'])->name('doctor.addDoctor');
+    Route::get('/doctor/add-doctor', [DoctorController::class, 'create'])->name('doctor.addDoctor');
+    Route::post('/doctors', [DoctorController::class, 'store'])->name('doctors.store');
     Route::get('/doctor/view-doctor', [DoctorController::class, 'viewDoctor'])->name('doctor.viewDoctor');
 
     // Patient Routes
