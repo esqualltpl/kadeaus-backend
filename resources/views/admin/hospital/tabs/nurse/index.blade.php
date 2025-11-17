@@ -48,7 +48,7 @@
                 @endforeach
             </div>
         @else
-            <div class="text-muted text-center">No nurse found. Please create Nurse</div>
+            <div class="text-muted">No record found.</div>
         @endif
 
     </section>

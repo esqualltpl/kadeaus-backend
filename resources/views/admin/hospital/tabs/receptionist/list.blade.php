@@ -38,7 +38,7 @@
       </button>
     </div>
   @empty
-    <div class="text_muted text-center">Not found Receptionists</div>
+    <div class="text_muted text-center">No record found.</div>
   @endforelse
 </div>
 

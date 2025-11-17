@@ -43,7 +43,7 @@
                     @endforeach
                 </div>
             @else
-                <div class="text-muted">No doctors found for this hospital.</div>
+                <div class="text-muted">No record found.</div>
             @endif
     </section>
 

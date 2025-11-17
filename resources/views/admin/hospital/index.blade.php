@@ -47,9 +47,6 @@
                             <td>{{ $hospital->user?->email ?? '—' }}</td>
                             <td>{{ $hospital->user?->phone ?? '—' }}</td>
                             <td>{{ $h->appointments_count ?? 'N/A' }}</td>
-                            {{-- <td>
-                                <a href="#" class="btn btn-sm btn-outline-secondary">View</a>
-                            </td> --}}
                         </tr>
                     @empty
                         <tr>
@@ -105,8 +102,8 @@
     <script>
         // ---- Configuration ----
         const BASE_DETAIL_URL = "{{ route('admin.hospital.hospitalDetail', ['id' => ':id']) }}";
-        const BASE_EDIT_URL   = "{{ route('admin.hospital.hospitalEdit', ':id') }}"; 
-        const BASE_DELETE_URL = "{{ route('admin.hospital.destroy', ':id') }}";   
+        const BASE_EDIT_URL = "{{ route('admin.hospital.hospitalEdit', ['id' => ':id']) }}";
+        const BASE_DELETE_URL = "{{ route('admin.hospital.destroy', ['id' => ':id']) }}";
 
         // ---- Utilities ----
         function escapeHtml(str) {

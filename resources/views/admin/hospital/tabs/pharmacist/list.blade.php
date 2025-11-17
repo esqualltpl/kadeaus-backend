@@ -38,7 +38,7 @@
                 Details</button>
         </div>
         @empty
-            <div class="text-muted text-center">No Pharmacist found.Please create Pharmacist</div>
+            <div class="text-muted text-center">No record found.</div>
         @endforelse
     </div>
 </section>

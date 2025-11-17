@@ -81,7 +81,7 @@ class HospitalController extends Controller
                 ->all();
 
             if (!empty($deps)) {
-                $hospital->departments()->createMany($deps);
+                $hospital->department()->createMany($deps);
             }
         });
 
@@ -96,13 +96,15 @@ class HospitalController extends Controller
 
     public function edit($id)
     {
-        // dd($hospital_id);
+        // dd($id);
         $hospital = Hospital::with('department')->find($id);
+        // dd($hospital);
         return view('admin.hospital.edit-hospital', compact('hospital'));
     }
 
     public function update(Request $request, $id)
     {
+        
         $data = $request->validate([
             // user fields
             'name'     => ['required','string','max:255'],
@@ -151,13 +153,11 @@ class HospitalController extends Controller
 
     protected function nextHospitalPid(): string
     {
-        // Lock the table scope by touching the hospitals table in the outer transaction.
-        // We read the last numeric part and increment.
         $last = Hospital::query()
             ->whereNotNull('hospital_id')
             ->lockForUpdate()
             ->orderByDesc('id')
-            ->value('hospital_id'); // e.g., "PID-09"
+            ->value('hospital_id'); 
 
         $nextNumber = 1;
         if ($last && preg_match('/^PID-(\d+)$/', $last, $m)) {
