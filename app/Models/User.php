@@ -19,7 +19,7 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
-    protected $fillable = ['name', 'email', 'phone', 'dob', 'gender', 'password', 'address', 'country', 'city', 'state', 'zipcode', 'added_by'];
+    protected $fillable = ['first_name', 'last_name', 'name','email', 'phone','otp_expire_at','OTP', 'dob', 'gender', 'password', 'address', 'country', 'city', 'state', 'zipcode', 'added_by'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -88,4 +88,44 @@ class User extends Authenticatable
     {
         return $this->hasOne(Doctor::class);
     }
+    public function medicalHistories()
+{
+    return $this->hasMany(MedicalHistory::class, 'user_id');
+}
+public function allergies()
+{
+    return $this->hasMany(AllergyInformation::class, 'user_id');
+}
+public function medications()
+{
+    return $this->hasMany(Medication::class, 'user_id');
+}
+public function vaccinations()
+{
+    return $this->hasMany(Vaccination::class, 'user_id');
+}
+public function vaccinationBoosters()
+{
+    return $this->hasMany(VaccinationBooster::class, 'user_id');
+}
+public function appointments()
+{
+    return $this->hasMany(Appointment::class, 'user_id');
+}
+
+public function createdAppointments()
+{
+    return $this->hasMany(Appointment::class, 'created_by');
+}
+
+public function rescheduledAppointments()
+{
+    return $this->hasMany(Appointment::class, 'rescheduled_by');
+}
+
+public function cancelledAppointments()
+{
+    return $this->hasMany(Appointment::class, 'cancelled_by');
+}
+
 }

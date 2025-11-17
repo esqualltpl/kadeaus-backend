@@ -44,7 +44,7 @@ class ResponseServiceProvider extends ServiceProvider
 
             Log::error("API Exception", [
                 'message'   => $e->getMessage(),
-                // 'file'      => $e->getFile(),
+                'file'      => $e->getFile(),
                 'line'      => $e->getLine(),
                 'trace'     => $e->getTraceAsString()
             ]);

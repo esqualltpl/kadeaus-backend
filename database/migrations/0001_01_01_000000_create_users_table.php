@@ -13,13 +13,19 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('name')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('OTP')->nullable();
+            $table->timestamp('otp_expire_at')->nullable();
+            $table->enum('otp_status',['verified','unverified'])->default('unverified');
             $table->string('phone')->nullable();
             $table->date('dob')->nullable();
             $table->enum('gender', ['Male', 'Female', 'Other'])->nullable();
-            // image column 
+            $table->enum('material_status', ['Single', 'Married'])->nullable();
+            // image column
             $table->string('avatar')->nullable();
             $table->string('address')->nullable();
             $table->string('country')->nullable();
@@ -28,6 +34,7 @@ return new class extends Migration
             $table->integer('zipcode')->nullable();
             $table->integer('added_by')->nullable();
             $table->string('password');
+             $table->enum('status', ['pending', 'active', 'blocked'])->default('pending');
             $table->rememberToken();
             $table->timestamps();
         });
