@@ -31,14 +31,15 @@ class ResponseServiceProvider extends ServiceProvider
             ], $status);
         });
 
-        Response::macro('apiError', function(?string $message = null, $data = null, int $status = 400, $error = null) : JsonResponse{
+        Response::macro('apiError', function(?string $message = null, $error = null, int $status = 400, $data = null) {
             return response()->json([
-                'status'    => false,
-                'message'   => $message,
-                'error'     => $error,
-                'data'      => $data
+                'status'  => false,
+                'message' => $message,
+                'error'   => $error,
+                'data'    => $data
             ], $status);
         });
+
 
         Response::macro('apiCatchError', function(Exception $e, int $status = 500) : JsonResponse {
 

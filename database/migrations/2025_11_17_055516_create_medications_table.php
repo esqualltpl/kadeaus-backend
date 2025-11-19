@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('end_date')->nullable();
             $table->string('duration')->nullable();
             $table->text('reason')->nullable();
-             $table->enum('is_taking', ['Yes', 'No'])->nullable();
+            $table->enum('is_taking', ['Yes', 'No'])->nullable();
             $table->enum('status', ['active', 'pending'])->default('active')->nullable();
             $table->softDeletes();
             $table->timestamps();

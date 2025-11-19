@@ -25,7 +25,6 @@ return new class extends Migration
             $table->date('dob')->nullable();
             $table->enum('gender', ['Male', 'Female', 'Other'])->nullable();
             $table->enum('material_status', ['Single', 'Married'])->nullable();
-            // image column
             $table->string('avatar')->nullable();
             $table->string('address')->nullable();
             $table->string('country')->nullable();
@@ -34,7 +33,7 @@ return new class extends Migration
             $table->integer('zipcode')->nullable();
             $table->integer('added_by')->nullable();
             $table->string('password');
-             $table->enum('status', ['pending', 'active', 'blocked'])->default('pending');
+            $table->enum('status', ['pending', 'active', 'blocked'])->default('pending');
             $table->rememberToken();
             $table->timestamps();
         });

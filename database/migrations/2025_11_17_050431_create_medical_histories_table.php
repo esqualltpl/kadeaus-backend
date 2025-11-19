@@ -16,10 +16,10 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->nullable()->comment('User ID:belong to users table');
             $table->text('disease')->nullable();
             $table->string('diagnosis_date')->nullable();
-            $table->enum('status', ['active', 'resolved','pending','unknown'])->default('active')->nullable();
+            $table->enum('status', ['Active', 'Resolved','Pending','Unknown'])->default('Active')->nullable();
             $table->text('description')->nullable();
             $table->string('hospital')->nullable();
-            $table->string('report_file')->nullable();
+            $table->text('report_file')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
