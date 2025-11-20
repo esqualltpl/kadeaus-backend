@@ -40,4 +40,9 @@ class Doctor extends Model
     {
         return $this->hasOne(Qualification::class, 'doctor_id', 'id');
     }
+
+    public function appointment()
+    {
+        return $this->hasMany(Appointment::class, 'doctor_id');
+    }
 }

@@ -22,7 +22,7 @@ class Hospital extends Model
         return $this->hasMany(Department::class);
     }
 
-    public function appointments()
+    public function appointment()
     {
         return $this->hasMany(Appointment::class);
     }

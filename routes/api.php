@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\APIs\Appointment\AppointmentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\APIs\Auth\AuthController;
@@ -61,4 +62,12 @@ Route::group(['prefix' => 'vaccination'], function() {
     Route::post('/tracking/store', [VaccinationTrackingController::class, 'saveVaccinationTracking']);
     Route::post('/booster/store', [VaccinationTrackingController::class, 'saveVaccinationBooster']);
     Route::get('/vaccination/data/get', [VaccinationTrackingController::class, 'getVaccinationData']);
+});
+
+Route::group(['prefix' => 'appointment'], function() {
+    Route::post('/store', [AppointmentController::class, 'saveAppointment']);
+    Route::get('/get', [AppointmentController::class, 'getAppointmentsByStatus']);
+    Route::get('/hospital/names', [AppointmentController::class, 'getHospitals']);
+    Route::get('/department/names', [AppointmentController::class, 'getDepartments']);
+    Route::get('/doctor/names', [AppointmentController::class, 'getDoctors']);
 });
